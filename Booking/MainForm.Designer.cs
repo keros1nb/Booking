@@ -40,6 +40,7 @@ namespace Booking
             this.FilrtButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.HotelsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -131,6 +132,7 @@ namespace Booking
             // 
             // HotelsPanel
             // 
+            this.HotelsPanel.Controls.Add(this.label4);
             this.HotelsPanel.Controls.Add(this.label7);
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(0, 144);
@@ -146,6 +148,15 @@ namespace Booking
             this.label7.Size = new System.Drawing.Size(144, 16);
             this.label7.TabIndex = 6;
             this.label7.Text = "Все права защищены";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(806, 401);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Все права защищены";
             // 
             // MainForm
             // 
@@ -178,6 +189,7 @@ namespace Booking
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel HotelsPanel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
     }
 }
 
