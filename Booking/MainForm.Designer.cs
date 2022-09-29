@@ -39,8 +39,8 @@ namespace Booking
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.FilrtButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.HotelsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -139,15 +139,7 @@ namespace Booking
             this.HotelsPanel.Name = "HotelsPanel";
             this.HotelsPanel.Size = new System.Drawing.Size(962, 443);
             this.HotelsPanel.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(800, 417);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 16);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Все права защищены";
+            this.HotelsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HotelsPanel_Paint);
             // 
             // label4
             // 
@@ -157,6 +149,15 @@ namespace Booking
             this.label4.Size = new System.Drawing.Size(144, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Все права защищены";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(800, 417);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 16);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Все права защищены";
             // 
             // MainForm
             // 

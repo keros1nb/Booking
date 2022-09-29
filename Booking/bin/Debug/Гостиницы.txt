@@ -1,0 +1,3 @@
+Гостиница "Космос", Москва, 5, HotelCosmosMOSCOW.jpeg
+Гостиница "Азимут", Санкт-Петербург, 4, HotelAzimutSPB.jpg
+Гостиница "Венец", Ульяновск, 3, HotelVenecULSK.jpg

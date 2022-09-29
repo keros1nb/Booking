@@ -95,5 +95,10 @@ namespace Booking
         {
 
         }
+
+        private void HotelsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

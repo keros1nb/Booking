@@ -35,6 +35,7 @@ namespace Booking
     public partial class HotelForm : Form
     {
         public static string Hotel_Name;
+        public static int Rating;
 
         public HotelForm(Hotel hotel)
         {
@@ -43,22 +44,24 @@ namespace Booking
             Text = hotel.Name;
             label1.Text = hotel.Name;
             Hotel_Name = hotel.Name;
+            Rating = hotel.Rating;
+            pictureBox1.Image = hotel.pb.Image;
 
-            int x = 320;
+
+            int x = 330;
             for (int i=0; i < hotel.Rating; i++)
             {
                 PictureBox box = new PictureBox();
                 box.Load("../../Pictures/Star.png");
                 box.Location = new Point(x, 70);
-                box.Size = new Size(60, 60);
+                box.Size = new Size(50, 50);
                 box.SizeMode = PictureBoxSizeMode.Zoom;
                 panel1.Controls.Add(box);
 
                 x += 65;
             }
 
-            pictureBox1.Image = hotel.pb.Image;
-
+           
         }
 
         private void HotelForm_Load(object sender, EventArgs e)
@@ -69,14 +72,14 @@ namespace Booking
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            RoomForm rf = new RoomForm(Hotel_Name, pb.Tag.ToString());
+            RoomForm rf = new RoomForm(Hotel_Name, pb.Tag.ToString(), Rating);
             rf.Show();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            RoomForm rf = new RoomForm(Hotel_Name, lbl.Text);
+            RoomForm rf = new RoomForm(Hotel_Name, lbl.Text, Rating);
             rf.Show();
         }
 

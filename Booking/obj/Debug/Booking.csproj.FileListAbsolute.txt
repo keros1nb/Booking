@@ -1,0 +1,13 @@
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Desktop\Booking-master\Booking\bin\Debug\Booking.exe.config
+C:\Users\user\Desktop\Booking-master\Booking\bin\Debug\Booking.exe
+C:\Users\user\Desktop\Booking-master\Booking\bin\Debug\Booking.pdb
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.HotelForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.MainForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.Properties.Resources.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.RoomForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.exe
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.pdb
