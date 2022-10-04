@@ -7,27 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data.Common;
+using MySql.Data;
 
 namespace Booking
 {
     public partial class MainForm : Form
     {
+        const string CONNECTION_STRING =
+            "SslMode=none;Server=localhost;Database=booking;port=3306;Uid=root;";
+
         public static List<Hotel> hotels = new List<Hotel>();
+
 
         public MainForm()
         {
             InitializeComponent();
 
-            string[] lines = System.IO.File.ReadAllLines("Гостиницы.txt");
+            MySqlConnection conn = new MySqlConnection(CONNECTION_STRING);
+            conn.Open();
 
-            foreach(string line in lines)
+            MySqlCommand cmd = new MySqlCommand("SELECT Name, City, Rating, Image FROM hotels", conn);
+            DbDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
             {
-                string[] parts = line.Split(new string[] { ", " }, StringSplitOptions.None);
-                Hotel hotel = new Hotel(parts[0], parts[1], Convert.ToInt32(parts[2]), parts[3]);
-                hotels.Add(hotel);
-            }
+                string name = reader.GetValue(0).ToString();
+                string city = reader.GetValue(1).ToString();
+                string rating = reader.GetValue(2).ToString();
+                string image = reader.GetValue(3).ToString();
 
-            int x = 40;
+                Hotel hotel = new Hotel(name, city, Convert.ToInt32(rating), image);
+                hotels.Add(hotel);
+
+            }
+            reader.Close();
+
+
+
+            conn.Close();
+
+           int x = 40;
             foreach(Hotel hotel in hotels)
             {
                 hotel.pb.Location = new Point(x, 30);

@@ -39,14 +39,12 @@ namespace Booking
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.FilrtButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
-            this.HotelsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FiltrPanel
             // 
+            this.FiltrPanel.AutoScroll = true;
             this.FiltrPanel.Controls.Add(this.button1);
             this.FiltrPanel.Controls.Add(this.dateTimePicker2);
             this.FiltrPanel.Controls.Add(this.label3);
@@ -132,8 +130,7 @@ namespace Booking
             // 
             // HotelsPanel
             // 
-            this.HotelsPanel.Controls.Add(this.label4);
-            this.HotelsPanel.Controls.Add(this.label7);
+            this.HotelsPanel.AutoScroll = true;
             this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HotelsPanel.Location = new System.Drawing.Point(0, 144);
             this.HotelsPanel.Name = "HotelsPanel";
@@ -141,28 +138,11 @@ namespace Booking
             this.HotelsPanel.TabIndex = 1;
             this.HotelsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HotelsPanel_Paint);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(806, 401);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Все права защищены";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(800, 417);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 16);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Все права защищены";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(962, 587);
             this.Controls.Add(this.HotelsPanel);
             this.Controls.Add(this.FiltrPanel);
@@ -171,8 +151,6 @@ namespace Booking
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
-            this.HotelsPanel.ResumeLayout(false);
-            this.HotelsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -189,8 +167,6 @@ namespace Booking
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel HotelsPanel;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
     }
 }
 

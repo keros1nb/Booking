@@ -26,7 +26,13 @@ namespace Booking
             Rating = _Rating;
             Picture_Adress = _Adress;
             pb = new PictureBox();
-            pb.Load("../../Pictures/" + _Adress);
+            try
+            {
+                pb.Load("../../Pictures/" + _Adress);
+            }
+            catch (Exception) { }
+
+       
             lbl = new Label();
         }
     }
