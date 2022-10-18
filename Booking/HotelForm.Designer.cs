@@ -39,6 +39,7 @@ namespace Booking
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@ namespace Booking
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -64,9 +66,10 @@ namespace Booking
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(474, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(302, 50);
+            this.label2.Size = new System.Drawing.Size(75, 75);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Адрес:\r\nпр-т Мира, 150, Москва, 129366\r\n";
+            this.label2.Text = "Адрес:\r\n\r\n\r\n";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -146,6 +149,16 @@ namespace Booking
             this.pictureBox6.Tag = "Одноместный номер";
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(476, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "label5";
+            // 
             // HotelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,5 +191,6 @@ namespace Booking
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label5;
     }
 }

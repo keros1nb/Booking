@@ -39,12 +39,14 @@ namespace Booking
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.FilrtButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.FiltrPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FiltrPanel
             // 
             this.FiltrPanel.AutoScroll = true;
+            this.FiltrPanel.Controls.Add(this.button2);
             this.FiltrPanel.Controls.Add(this.button1);
             this.FiltrPanel.Controls.Add(this.dateTimePicker2);
             this.FiltrPanel.Controls.Add(this.label3);
@@ -138,6 +140,16 @@ namespace Booking
             this.HotelsPanel.TabIndex = 1;
             this.HotelsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HotelsPanel_Paint);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(130, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 33);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Админка";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,6 +179,7 @@ namespace Booking
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel HotelsPanel;
+        private System.Windows.Forms.Button button2;
     }
 }
 

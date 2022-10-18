@@ -19,16 +19,16 @@ namespace Booking
         public PictureBox pb;
         public Label lbl;
 
-        public Hotel(string _Name, string _City, int _Rating, string _Adress)
+        public Hotel(string _Name, string _City, int _Rating, string _Address)
         {
             Name = _Name;
             City = _City;
             Rating = _Rating;
-            Picture_Adress = _Adress;
+            Picture_Adress = _Address;
             pb = new PictureBox();
             try
             {
-                pb.Load("../../Pictures/" + _Adress);
+                pb.Load("../../Pictures/" + _Address);
             }
             catch (Exception) { }
 
@@ -43,19 +43,27 @@ namespace Booking
         public static string Hotel_Name;
         public static int Rating;
 
-        public HotelForm(Hotel hotel)
+        public HotelForm(string hotel_name)
         {
             InitializeComponent();
 
-            Text = hotel.Name;
-            label1.Text = hotel.Name;
-            Hotel_Name = hotel.Name;
-            Rating = hotel.Rating;
-            pictureBox1.Image = hotel.pb.Image;
+            List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE Name ='" + hotel_name + "'");
+
+            Text = otel[0];
+            label1.Text = otel[0];
+            Hotel_Name = otel[0];
+            Rating = Convert.ToInt32(otel[2]);
+            try
+            {
+                pictureBox1.Load("../../Pictures/" + otel[3]);
+            }
+            catch (Exception) { };
+
+            label5.Text = otel[4];
 
 
             int x = 330;
-            for (int i=0; i < hotel.Rating; i++)
+            for (int i=0; i < Rating; i++)
             {
                 PictureBox box = new PictureBox();
                 box.Load("../../Pictures/Star.png");
@@ -90,6 +98,11 @@ namespace Booking
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
