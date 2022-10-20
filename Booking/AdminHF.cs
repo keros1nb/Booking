@@ -43,21 +43,22 @@ namespace Booking
             if(openFileDialog1.ShowDialog() ==DialogResult.OK)
             {
                 address = openFileDialog1.FileName;
-
-                    pictureBox1.Load(address);
-
+                pictureBox1.Load(address);
+                System.IO.File.Copy(address, "../../Pictures/" + System.IO.Path.GetFileName(address));
+                address = System.IO.Path.GetFileName(address);
             }    
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO hotels (Name, City, Rating, Image, Address)" +
-                                                "VALUES('"+ textBox1.Text +"', '"+ textBox2.Text + "', '"+ textBox3.Text + "', '"+ address + "', '" + textBox4.Text + "')", Program.CONN);
-            cmd.ExecuteReader();
-            cmd.Dispose();
+            MainForm.MyUpdate("INSERT INTO hotels (Name, City, Rating, Image, Address)" +
+            "VALUES('"+ textBox1.Text +"', '"+ textBox2.Text + "', '"+ textBox3.Text + "', '"+ address + "', '" + textBox4.Text + "')");
+     
             MessageBox.Show("Сохранено");
+            AdminHF_Load(sender, e);            
+            return;
         }
-
+        
         private void AdminHF_Load(object sender, EventArgs e)
         {
             List<string> list = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels");
@@ -94,11 +95,9 @@ namespace Booking
             {
                 if(control.Location == new Point(50, y))
                 {
-                    MySqlCommand cmd = new MySqlCommand(
-                        "DELETE FROM hotels WHERE Name = '"+ control.Text +"'", Program.CONN);
-                    cmd.ExecuteReader();
-                    cmd.Dispose();
-                    MessageBox.Show("Удалено");
+                  MainForm.MyUpdate("DELETE FROM hotels WHERE Name = '"+ control.Text +"'");
+                    AdminHF_Load(sender, e);
+                    return;
                 }
             }
         }
