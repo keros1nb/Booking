@@ -61,6 +61,12 @@
     <Compile Include="AdminHF.Designer.cs">
       <DependentUpon>AdminHF.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminRF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminRF.Designer.cs">
+      <DependentUpon>AdminRF.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHF.resx">
       <DependentUpon>AdminHF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminRF.resx">
+      <DependentUpon>AdminRF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotelForm.resx">
       <DependentUpon>HotelForm.cs</DependentUpon>

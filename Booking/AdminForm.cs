@@ -22,5 +22,11 @@ namespace Booking
             AdminHF HF = new AdminHF();
             HF.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminRF RF = new AdminRF();
+            RF.Show();
+        }
     }
 }
