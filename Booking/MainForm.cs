@@ -20,8 +20,8 @@ namespace Booking
         const string CONNECTION_STRING =
             "SslMode=none;Server=localhost;Database=booking;port=3306;Uid=root;";
 
-      
-      
+
+
         public static List<string> MySelect(string cmdText)
         {
 
@@ -56,11 +56,94 @@ namespace Booking
         public MainForm()
         {
             InitializeComponent();
+            Found_Click(null, null);
+            List<string> cities = MySelect("SELECT Name FROM cities ORDER BY Name");
+            CityComboBox.Items.Clear();
+            CityComboBox.Items.Add("");
+            foreach (string city in cities)
+                CityComboBox.Items.Add(city);
 
-            List<string> otels = MySelect("SELECT Name, City, Rating, Image, ID FROM hotels");
-            int x = 40;
-            for (int i=0; i<otels.Count; i+=5)
+        }
+
+
+        private void FilrtButton_Click(object sender, EventArgs e)
+        {
+            if (FiltrPanel.Size.Height < 50)
             {
+                FiltrPanel.Size = new Size(FiltrPanel.Size.Width, 145);
+            }
+            else
+            {
+                FiltrPanel.Size = new Size(FiltrPanel.Size.Width, FilrtButton.Size.Height);
+            }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            HotelForm hf = new HotelForm(pb.Tag.ToString());
+            hf.ShowDialog();
+
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Label lb = (Label)sender;
+            HotelForm hf = new HotelForm(lb.Tag.ToString());
+            hf.ShowDialog();
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HotelsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminForm AF = new AdminForm();
+            AF.Show();
+        }
+
+       
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Found_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Found_Button_Click(object sender, EventArgs e)
+        {
+            HotelsPanel.Controls.Clear();
+            string command = "SELECT Name, City, Rating, Image, ID FROM hotels WHERE 1";
+            if (CityComboBox.Text != "")
+                command += " AND City = '" + CityComboBox.Text + "'";
+            if (RatingComboBox.Text != "")
+                command += " AND Rating >= '" + RatingComboBox.Text + "'";
+            List<string> otels = MySelect(command);
+
+            int x = 40;
+            for (int i = 0; i < otels.Count; i += 5)
+            {
+
+
 
                 PictureBox pb = new PictureBox();
                 pb = new PictureBox();
@@ -90,53 +173,6 @@ namespace Booking
 
                 x += 220;
             }
-        }
-
-
-        private void FilrtButton_Click(object sender, EventArgs e)
-        {
-            if(FiltrPanel.Size.Height < 50)
-            {
-                FiltrPanel.Size = new Size(FiltrPanel.Size.Width, 145);
-            }
-            else
-            {
-                FiltrPanel.Size = new Size(FiltrPanel.Size.Width, FilrtButton.Size.Height);
-            }
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            HotelForm hf = new HotelForm(pb.Tag.ToString());
-            hf.ShowDialog();
-              
-            
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Label lb = (Label)sender;
-            HotelForm hf = new HotelForm(lb.Tag.ToString());
-            hf.ShowDialog();
-              
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HotelsPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AdminForm AF = new AdminForm();
-            AF.Show();
         }
     }
 }

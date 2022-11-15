@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace Booking
 {
- 
+
 
 
     public partial class HotelForm : Form
     {
         public static string Hotel_Name;
         public static int Rating;
-        public static int id;
+        public static int hotelid;
+       
 
         public HotelForm(string hotel_id)
         {
@@ -29,7 +30,7 @@ namespace Booking
             label1.Text = otel[0];
             Hotel_Name = otel[0];
             Rating = Convert.ToInt32(otel[2]);
-            id = Convert.ToInt32(hotel_id);
+            hotelid = Convert.ToInt32(hotel_id);
             try
             {
                 pictureBox1.Load("../../Pictures/" + otel[3]);
@@ -40,7 +41,7 @@ namespace Booking
 
 
             int x = 330;
-            for (int i=0; i < Rating; i++)
+            for (int i = 0; i < Rating; i++)
             {
                 PictureBox box = new PictureBox();
                 box.Load("../../Pictures/Star.png");
@@ -52,36 +53,71 @@ namespace Booking
                 x += 65;
             }
 
-           
+            List<string> Rooms = MainForm.MySelect("SELECT Name, Price, Image, ID FROM Rooms WHERE Hotel_ID ='" + hotel_id + "'");
+
+            x = 40;
+            for (int i = 0; i < Rooms.Count; i += 4)
+            {
+
+
+
+                PictureBox pb = new PictureBox();
+                pb = new PictureBox();
+                try
+                {
+                    pb.Load("../../Pictures/" + Rooms[i + 2]);
+                }
+                catch (Exception) { }
+                pb.Location = new Point(x, 10);
+                pb.Size = new Size(200, 180);
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pb.Tag = Rooms[i + 3];
+                pb.Click += new EventHandler(pictureBox6_Click);
+                RoomsPanel.Controls.Add(pb);
+
+
+                Label lbl = new Label();
+                lbl.Location = new Point(x, 190);
+                lbl.Size = new Size(500, 30);
+                lbl.Font = new Font("Microsoft Sans Serif", 12);
+                lbl.Text = Rooms[i];
+                lbl.Tag = Rooms[i + 2];
+                lbl.Click += new EventHandler(label3_Click);
+                RoomsPanel.Controls.Add(lbl);
+
+
+
+                x += 220;
+            }
         }
+            private void HotelForm_Load(object sender, EventArgs e)
+            {
 
-        private void HotelForm_Load(object sender, EventArgs e)
-        {
+            }
 
-        }
+            private void pictureBox6_Click(object sender, EventArgs e)
+            {
+                PictureBox pb = (PictureBox)sender;
+                RoomForm rf = new RoomForm(hotelid.ToString(), pb.Tag.ToString());
+                rf.Show();
+            }
+        
+            private void label3_Click(object sender, EventArgs e)
+            {
+                Label lbl = (Label)sender;
+            RoomForm rf = new RoomForm(hotelid.ToString(), lbl.Tag.ToString());
+                rf.Show();
+            }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            RoomForm rf = new RoomForm(Hotel_Name, pb.Tag.ToString(), Rating);
-            rf.Show();
-        }
+            private void panel1_Paint(object sender, PaintEventArgs e)
+            {
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Label lbl = (Label)sender;
-            RoomForm rf = new RoomForm(Hotel_Name, lbl.Text, Rating);
-            rf.Show();
-        }
+            }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            private void label2_Click(object sender, EventArgs e)
+            {
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            }
         }
     }
-}
+

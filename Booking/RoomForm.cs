@@ -12,24 +12,25 @@ namespace Booking
 {
     public partial class RoomForm : Form
     {
-        public RoomForm(string HotelName, string RoomName, int Rating)
+        public static int Rating;
+
+        public RoomForm(string hotel_id, string Room_id)
         {
             InitializeComponent();
 
-            Text = HotelName + ": " + RoomName;
-            label1.Text = HotelName;
-            label3.Text = RoomName;
+            List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
+            List<string> Room = MainForm.MySelect("SELECT Name, Price, Image, ID FROM Rooms WHERE ID ='" + Room_id + "'");
 
-            if(RoomName == "Двухместный номер")
+            Text = otel[0] + ": " + Room[0];
+            label1.Text = otel[0];
+            label3.Text = Room[0];
+            label4.Text = otel[4];
+            Rating = Convert.ToInt32(otel[2]);
+            try
             {
-                pictureBox1.Load("../../Picture/2Seats.jpg");
+                pictureBox1.Load("../../Pictures/" + Room[2]);
             }
-
-
-            if (RoomName == "Одноместный номер")
-            {
-                pictureBox1.Load("../../Picture/1Seat.jpg");
-            }
+            catch (Exception) { };
 
             int x = 330;
             for (int i = 0; i < Rating; i++)
@@ -62,6 +63,11 @@ namespace Booking
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
