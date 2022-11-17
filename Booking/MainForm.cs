@@ -20,6 +20,9 @@ namespace Booking
         const string CONNECTION_STRING =
             "SslMode=none;Server=localhost;Database=booking;port=3306;Uid=root;";
 
+        public static string Login = "";
+        public static string NameSurname = "";
+
 
 
         public static List<string> MySelect(string cmdText)
@@ -173,6 +176,12 @@ namespace Booking
 
                 x += 220;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AuthorizeForm AF = new AuthorizeForm();
+            AF.Show();
         }
     }
 }

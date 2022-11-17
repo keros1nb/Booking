@@ -42,7 +42,10 @@ namespace Booking
             this.CityComboBox = new System.Windows.Forms.ComboBox();
             this.FilrtButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.AuthPanel = new System.Windows.Forms.Panel();
             this.FiltrPanel.SuspendLayout();
+            this.AuthPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FiltrPanel
@@ -50,7 +53,6 @@ namespace Booking
             this.FiltrPanel.AutoScroll = true;
             this.FiltrPanel.Controls.Add(this.label4);
             this.FiltrPanel.Controls.Add(this.RatingComboBox);
-            this.FiltrPanel.Controls.Add(this.button2);
             this.FiltrPanel.Controls.Add(this.Found_Button);
             this.FiltrPanel.Controls.Add(this.dateTimePicker2);
             this.FiltrPanel.Controls.Add(this.label3);
@@ -59,11 +61,10 @@ namespace Booking
             this.FiltrPanel.Controls.Add(this.dateTimePicker1);
             this.FiltrPanel.Controls.Add(this.CityComboBox);
             this.FiltrPanel.Controls.Add(this.FilrtButton);
-            this.FiltrPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FiltrPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FiltrPanel.Location = new System.Drawing.Point(0, 0);
+            this.FiltrPanel.Location = new System.Drawing.Point(0, 61);
             this.FiltrPanel.Name = "FiltrPanel";
-            this.FiltrPanel.Size = new System.Drawing.Size(1367, 144);
+            this.FiltrPanel.Size = new System.Drawing.Size(1367, 146);
             this.FiltrPanel.TabIndex = 0;
             // 
             // label4
@@ -90,7 +91,7 @@ namespace Booking
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(130, 2);
+            this.button2.Location = new System.Drawing.Point(1233, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 33);
             this.button2.TabIndex = 8;
@@ -173,12 +174,32 @@ namespace Booking
             // HotelsPanel
             // 
             this.HotelsPanel.AutoScroll = true;
-            this.HotelsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HotelsPanel.Location = new System.Drawing.Point(0, 144);
+            this.HotelsPanel.Location = new System.Drawing.Point(0, 213);
             this.HotelsPanel.Name = "HotelsPanel";
-            this.HotelsPanel.Size = new System.Drawing.Size(1367, 443);
+            this.HotelsPanel.Size = new System.Drawing.Size(1367, 374);
             this.HotelsPanel.TabIndex = 1;
             this.HotelsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HotelsPanel_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(17, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 33);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Войти";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // AuthPanel
+            // 
+            this.AuthPanel.Controls.Add(this.button1);
+            this.AuthPanel.Controls.Add(this.button2);
+            this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AuthPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AuthPanel.Location = new System.Drawing.Point(0, 0);
+            this.AuthPanel.Name = "AuthPanel";
+            this.AuthPanel.Size = new System.Drawing.Size(1367, 55);
+            this.AuthPanel.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -186,6 +207,7 @@ namespace Booking
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1367, 587);
+            this.Controls.Add(this.AuthPanel);
             this.Controls.Add(this.HotelsPanel);
             this.Controls.Add(this.FiltrPanel);
             this.Name = "MainForm";
@@ -193,6 +215,7 @@ namespace Booking
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
+            this.AuthPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -212,6 +235,8 @@ namespace Booking
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox RatingComboBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel AuthPanel;
     }
 }
 

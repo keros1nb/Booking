@@ -16,3 +16,6 @@ C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.csproj.CopyComple
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminForm.resources
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminHF.resources
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminRF.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminUsersForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AuthorizeForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.RegistrationForm.resources
