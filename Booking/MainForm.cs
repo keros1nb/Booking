@@ -59,6 +59,7 @@ namespace Booking
         public MainForm()
         {
             InitializeComponent();
+           
             Found_Click(null, null);
             List<string> cities = MySelect("SELECT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
@@ -101,7 +102,13 @@ namespace Booking
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //  AuthPanel.Controls.Clear();
+            if (NameSurname != "")
+                label5.Visible = true;
+            label5.Text = NameSurname;
+            AuthPanel.Controls.Add(label5);
 
+            
         }
 
         private void HotelsPanel_Paint(object sender, PaintEventArgs e)
@@ -182,6 +189,12 @@ namespace Booking
         {
             AuthorizeForm AF = new AuthorizeForm();
             AF.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AccountForm AcF = new AccountForm();
+            AcF.ShowDialog();
         }
     }
 }

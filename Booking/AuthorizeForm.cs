@@ -43,8 +43,9 @@ namespace Booking
                 MainForm.Login = user_data[0];
                 MainForm.NameSurname = user_data[1] + " " + user_data[2];
                
+               
             }
-            Close();
+            Close();            
         }
     }
 }
