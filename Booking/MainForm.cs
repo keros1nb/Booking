@@ -22,6 +22,7 @@ namespace Booking
 
         public static string Login = "";
         public static string NameSurname = "";
+        public static int isAdmin = 0;
 
 
 
@@ -60,7 +61,7 @@ namespace Booking
         {
             InitializeComponent();
            
-            Found_Click(null, null);
+            Found_Button_Click(null, null);
             List<string> cities = MySelect("SELECT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
@@ -102,11 +103,7 @@ namespace Booking
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //  AuthPanel.Controls.Clear();
-            if (NameSurname != "")
-                label5.Visible = true;
-            label5.Text = NameSurname;
-            AuthPanel.Controls.Add(label5);
+           
 
             
         }
@@ -187,8 +184,38 @@ namespace Booking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AuthorizeForm AF = new AuthorizeForm();
-            AF.Show();
+            
+
+            if (button1.Text == "Выйти")
+            {
+                AuthPanel.Controls.Clear();
+                button1.Text = "Войти";
+                AuthPanel.Controls.Add(button1);
+            }
+            else 
+            {
+                AuthorizeForm AF = new AuthorizeForm();
+                AF.ShowDialog();
+
+                AuthPanel.Controls.Clear();
+                button1.Text = "Выйти";
+                AuthPanel.Controls.Add(button1);
+                if (NameSurname != "")
+                {
+                    label5.Visible = true;
+                    AccountButton.Visible = true;
+                }
+                if (isAdmin == 1)
+                {
+                    AdminButton.Visible = true;
+                }
+                label5.Text = NameSurname;
+                AuthPanel.Controls.Add(label5);
+                AuthPanel.Controls.Add(AccountButton);
+                AuthPanel.Controls.Add(AdminButton);
+            }
+            
+
         }
 
         private void button3_Click(object sender, EventArgs e)

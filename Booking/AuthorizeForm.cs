@@ -36,16 +36,21 @@ namespace Booking
         private void LoginButton_Click(object sender, EventArgs e)
         {
             List<string> user_data = MainForm.MySelect(
-            "SELECT Login, Name, Surname FROM users WHERE Login = '" + LoginTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'");
+            "SELECT Login, Name, Surname, Admin_ID FROM users WHERE Login = '" + LoginTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'");
 
             if (user_data.Count > 0)
             {
                 MainForm.Login = user_data[0];
                 MainForm.NameSurname = user_data[1] + " " + user_data[2];
-               
-               
+                MainForm.isAdmin = Convert.ToInt32(user_data[3]);
+                Close();
             }
-            Close();            
+            else
+            {
+                MessageBox.Show("Логин или пароль был указан неправильно или аккаунт не найден, хотите зарегистрироваться?");
+            }
+
+            
         }
     }
 }

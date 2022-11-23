@@ -40,12 +40,12 @@ namespace Booking
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
             this.FilrtButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AdminButton = new System.Windows.Forms.Button();
             this.HotelsPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.AuthPanel = new System.Windows.Forms.Panel();
-            this.AccountButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.AccountButton = new System.Windows.Forms.Button();
             this.FiltrPanel.SuspendLayout();
             this.AuthPanel.SuspendLayout();
             this.SuspendLayout();
@@ -163,15 +163,16 @@ namespace Booking
             this.FilrtButton.UseVisualStyleBackColor = true;
             this.FilrtButton.Click += new System.EventHandler(this.FilrtButton_Click);
             // 
-            // button2
+            // AdminButton
             // 
-            this.button2.Location = new System.Drawing.Point(1233, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 33);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Админка";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AdminButton.Location = new System.Drawing.Point(1233, 12);
+            this.AdminButton.Name = "AdminButton";
+            this.AdminButton.Size = new System.Drawing.Size(122, 33);
+            this.AdminButton.TabIndex = 8;
+            this.AdminButton.Text = "Админка";
+            this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Visible = false;
+            this.AdminButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // HotelsPanel
             // 
@@ -197,23 +198,13 @@ namespace Booking
             this.AuthPanel.Controls.Add(this.label5);
             this.AuthPanel.Controls.Add(this.AccountButton);
             this.AuthPanel.Controls.Add(this.button1);
-            this.AuthPanel.Controls.Add(this.button2);
+            this.AuthPanel.Controls.Add(this.AdminButton);
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
             this.AuthPanel.Name = "AuthPanel";
             this.AuthPanel.Size = new System.Drawing.Size(1367, 55);
             this.AuthPanel.TabIndex = 2;
-            // 
-            // AccountButton
-            // 
-            this.AccountButton.Location = new System.Drawing.Point(641, 9);
-            this.AccountButton.Name = "AccountButton";
-            this.AccountButton.Size = new System.Drawing.Size(172, 39);
-            this.AccountButton.TabIndex = 12;
-            this.AccountButton.Text = "Личный кабинет";
-            this.AccountButton.UseVisualStyleBackColor = true;
-            this.AccountButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
@@ -224,6 +215,17 @@ namespace Booking
             this.label5.TabIndex = 13;
             this.label5.Text = "label5";
             this.label5.Visible = false;
+            // 
+            // AccountButton
+            // 
+            this.AccountButton.Location = new System.Drawing.Point(1021, 9);
+            this.AccountButton.Name = "AccountButton";
+            this.AccountButton.Size = new System.Drawing.Size(206, 39);
+            this.AccountButton.TabIndex = 12;
+            this.AccountButton.Text = "Личный кабинет";
+            this.AccountButton.UseVisualStyleBackColor = true;
+            this.AccountButton.Visible = false;
+            this.AccountButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainForm
             // 
@@ -257,13 +259,13 @@ namespace Booking
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox CityComboBox;
         private System.Windows.Forms.Panel HotelsPanel;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox RatingComboBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel AuthPanel;
         private System.Windows.Forms.Button AccountButton;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Panel AuthPanel;
+        public System.Windows.Forms.Button AdminButton;
     }
 }
 

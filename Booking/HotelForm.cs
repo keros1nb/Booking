@@ -39,13 +39,21 @@ namespace Booking
 
             label5.Text = otel[4];
 
+            if (MainForm.Login != "")
+            {
+                Opinion.Visible = true;
+            }
+            else
+            {
+                Opinion.Visible = false;
+            }
 
             int x = 330;
             for (int i = 0; i < Rating; i++)
             {
                 PictureBox box = new PictureBox();
                 box.Load("../../Pictures/Star.png");
-                box.Location = new Point(x, 70);
+                box.Location = new Point(x, 10);
                 box.Size = new Size(50, 50);
                 box.SizeMode = PictureBoxSizeMode.Zoom;
                 panel1.Controls.Add(box);
@@ -118,6 +126,19 @@ namespace Booking
             {
 
             }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
+
+        private void OpinionButton_Click(object sender, EventArgs e)
+        {
+            MainForm.MyUpdate("INSERT INTO rating (User, Hotel_ID, Rate, Comment)" +
+                             "VALUES ('" + MainForm.Login + "', '" + hotelid + "', '" + numericUpDown1.Value.ToString() + "', '" +
+                                     textBox1.Text + "')");
+            MessageBox.Show("Спасибо");
+        }
+    }
     }
 
