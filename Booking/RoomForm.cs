@@ -13,10 +13,13 @@ namespace Booking
     public partial class RoomForm : Form
     {
         public static int Rating;
+        string id = "";
 
         public RoomForm(string hotel_id, string Room_id)
         {
             InitializeComponent();
+
+            id = Room_id;
 
             List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
             List<string> Room = MainForm.MySelect("SELECT Name, Price, Image, ID FROM Rooms WHERE ID ='" + Room_id + "'");
@@ -37,7 +40,7 @@ namespace Booking
             {
                 PictureBox box = new PictureBox();
                 box.Load("../../Pictures/Star.png");
-                box.Location = new Point(x, 70);
+                box.Location = new Point(x, 50);
                 box.Size = new Size(50, 50);
                 box.SizeMode = PictureBoxSizeMode.Zoom;
                 panel1.Controls.Add(box);
@@ -54,6 +57,21 @@ namespace Booking
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(MainForm.Login  == "")
+            {
+                MessageBox.Show("Вы не авторизованы");
+                return;
+            }
+
+
+
+
+            MainForm.MyUpdate("INSERT INTO booking(User, comedate, outdate, room_id) VALUES(" +
+                                                                                                "'" + MainForm.Login + "'," +
+                                                                                                "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
+                                                                                                "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +
+                                                                                                 id + ")");
+
             MessageBox.Show("Успешно!");
         }
 
@@ -68,6 +86,11 @@ namespace Booking
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

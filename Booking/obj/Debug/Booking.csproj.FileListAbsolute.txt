@@ -20,3 +20,4 @@ C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminUsersForm.re
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AuthorizeForm.resources
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.RegistrationForm.resources
 C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AccountForm.resources
+C:\Users\user\Desktop\Booking-master\Booking\obj\Debug\Booking.AdminBookingForm.resources

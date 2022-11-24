@@ -167,7 +167,7 @@ namespace Booking
             // 
             this.AdminButton.Location = new System.Drawing.Point(1233, 12);
             this.AdminButton.Name = "AdminButton";
-            this.AdminButton.Size = new System.Drawing.Size(122, 33);
+            this.AdminButton.Size = new System.Drawing.Size(131, 33);
             this.AdminButton.TabIndex = 8;
             this.AdminButton.Text = "Админка";
             this.AdminButton.UseVisualStyleBackColor = true;
