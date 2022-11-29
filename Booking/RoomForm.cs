@@ -14,6 +14,7 @@ namespace Booking
     {
         public static int Rating;
         string id = "";
+        int qty = 0;
 
         public RoomForm(string hotel_id, string Room_id)
         {
@@ -22,9 +23,10 @@ namespace Booking
             id = Room_id;
 
             List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
-            List<string> Room = MainForm.MySelect("SELECT Name, Price, Image, ID FROM Rooms WHERE ID ='" + Room_id + "'");
+            List<string> Room = MainForm.MySelect("SELECT Name, Price, Image, quantity ID FROM Rooms WHERE ID ='" + Room_id + "'");
 
             Text = otel[0] + ": " + Room[0];
+            qty = Convert.ToInt32(Room[3]);
             label1.Text = otel[0];
             label3.Text = Room[0];
             label4.Text = otel[4];
@@ -57,20 +59,34 @@ namespace Booking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(MainForm.Login  == "")
+
+            #region Mistakes checker
+            if (MainForm.Login  == "")
             {
                 MessageBox.Show("Вы не авторизованы");
                 return;
             }
-
-
+            DateTime dt = dateTimePicker1.Value;
+            while (dt <= dateTimePicker2.Value.AddDays(0.5)) 
+            {
+                List<string> existBooking = MainForm.MySelect("SELECT COUNT(*) FROM booking " +
+                        "WHERE comedate <= '" + dt.ToString("yyyy-MM-dd") + "'" +
+                        "AND outdate >=  '" + dt.ToString("yyyy-MM-dd") + "'");
+                if (Convert.ToInt32(existBooking[0]) >= qty)
+                {
+                    MessageBox.Show("На данные даты отсутсвуют места, выберите другие.");
+                    return;
+                }
+                dt = dt.AddDays(1);
+           }
+            #endregion
 
 
             MainForm.MyUpdate("INSERT INTO booking(User, comedate, outdate, room_id) VALUES(" +
-                                                                                                "'" + MainForm.Login + "'," +
-                                                                                                "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
-                                                                                                "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +
-                                                                                                 id + ")");
+                                                                "'" + MainForm.Login + "'," +
+                                                                "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
+                                                                "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +
+                                                                 id + ")");
 
             MessageBox.Show("Успешно!");
         }
