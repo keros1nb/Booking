@@ -19,7 +19,7 @@ namespace Booking
 
         private void AdminBookingForm_Load(object sender, EventArgs e)
         {
-            List<string> booking_list = MainForm.MySelect(
+            List<string> booking_list = SQLClass.Select(
                 "SELECT booking.User, booking.comedate, booking.outdate, booking.room_id, hotels.Name, rooms.Name " + 
                 " FROM booking" + 
                    " JOIN rooms ON rooms.ID = booking.room_id"+
@@ -94,7 +94,7 @@ namespace Booking
             {
                 if (control.Location == new Point(50, y))
                 {
-                    MainForm.MyUpdate("DELETE FROM booking" + " WHERE user = " + control.Text + "'" +
+                    SQLClass.Update("DELETE FROM booking" + " WHERE user = " + control.Text + "'" +
                                                               " AND room_id = '" + control.Tag + "'" +
                                                               " AND comedate = '" + Convert.ToDateTime(control.AccessibleName).ToString("yyyy-MM-dd") + "'" +
                                                               " AND outdate = '" + Convert.ToDateTime(control.AccessibleDescription).ToString("yyyy-MM-dd") + "'");

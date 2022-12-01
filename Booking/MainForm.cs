@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Data.Common;
-using MySql.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Net;
 
@@ -26,43 +24,13 @@ namespace Booking
 
 
 
-        public static List<string> MySelect(string cmdText)
-        {
-
-            List<string> list = new List<string>();
-            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
-            DbDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
-                    list.Add(reader.GetValue(i).ToString());
-                }
-
-            }
-            reader.Close();
-            return list;
-        }
-
-
-        //summary
-        //функция Update запроса /Insert/Delete
-        // </summary>
-        public static void MyUpdate(string cmdText)
-        {
-            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
-            DbDataReader reader = cmd.ExecuteReader();
-            reader.Close();
-        }
-
-
 
         public MainForm()
         {
             InitializeComponent();
            
             Found_Button_Click(null, null);
-            List<string> cities = MySelect("SELECT Name FROM cities ORDER BY Name");
+            List<string> cities = SQLClass.Select("SELECT Name FROM cities ORDER BY Name");
             CityComboBox.Items.Clear();
             CityComboBox.Items.Add("");
             foreach (string city in cities)
@@ -144,7 +112,7 @@ namespace Booking
                 command += " AND City = '" + CityComboBox.Text + "'";
             if (RatingComboBox.Text != "")
                 command += " AND Rating >= '" + RatingComboBox.Text + "'";
-            List<string> otels = MySelect(command);
+            List<string> otels = SQLClass.Select(command);
 
             int x = 40;
             for (int i = 0; i < otels.Count; i += 5)

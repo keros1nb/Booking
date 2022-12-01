@@ -24,7 +24,7 @@ namespace Booking
         {
             InitializeComponent();
 
-            List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
+            List<string> otel = SQLClass.Select("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
 
             Text = otel[0];
             label1.Text = otel[0];
@@ -61,7 +61,7 @@ namespace Booking
                 x += 65;
             }
 
-            List<string> Rooms = MainForm.MySelect("SELECT Name, Price, Image, ID FROM Rooms WHERE Hotel_ID ='" + hotel_id + "'");
+            List<string> Rooms = SQLClass.Select("SELECT Name, Price, Image, ID FROM Rooms WHERE Hotel_ID ='" + hotel_id + "'");
 
             x = 40;
             for (int i = 0; i < Rooms.Count; i += 4)
@@ -134,10 +134,16 @@ namespace Booking
 
         private void OpinionButton_Click(object sender, EventArgs e)
         {
-            MainForm.MyUpdate("INSERT INTO rating (User, Hotel_ID, Rate, Comment)" +
+            SQLClass.Update("INSERT INTO rating (User, Hotel_ID, Rate, Comment)" +
                              "VALUES ('" + MainForm.Login + "', '" + hotelid + "', '" + numericUpDown1.Value.ToString() + "', '" +
                                      textBox1.Text + "')");
             MessageBox.Show("Спасибо");
+            return;
+        }
+
+        private void HotelForm_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
     }

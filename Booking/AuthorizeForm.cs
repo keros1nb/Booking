@@ -35,7 +35,7 @@ namespace Booking
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            List<string> user_data = MainForm.MySelect(
+            List<string> user_data = SQLClass.Select(
             "SELECT Login, Name, Surname, Admin_ID FROM users WHERE Login = '" + LoginTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'");
 
             if (user_data.Count > 0)

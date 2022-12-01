@@ -16,9 +16,9 @@ namespace Booking
         {
             InitializeComponent();
 
-            List<string> user_data = MainForm.MySelect("SELECT Name, Surname, City, Age, Login, Password, Email FROM users WHERE Login = '" +
+            List<string> user_data = SQLClass.Select("SELECT Name, Surname, City, Age, Login, Password, Email FROM users WHERE Login = '" +
                                                         MainForm.Login + "'");
-            List<string> cities = MainForm.MySelect("SELECT Name FROM cities ");
+            List<string> cities = SQLClass.Select("SELECT Name FROM cities ");
                 ;
             NameTextBox.Text = user_data[0];
             SurnameTextBox.Text = user_data[1];
@@ -43,7 +43,7 @@ namespace Booking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm.MyUpdate("UPDATE users SET Name = '" + NameTextBox.Text+ "', Surname = '" + SurnameTextBox.Text + "', " +
+            SQLClass.Update("UPDATE users SET Name = '" + NameTextBox.Text+ "', Surname = '" + SurnameTextBox.Text + "', " +
                                "Login  = '" + LoginTextBox.Text + "', " +
                                "Password = '" + PasswordTextBox.Text + "', " +
                                "Email = '" + EmailTextBox.Text + "', " +

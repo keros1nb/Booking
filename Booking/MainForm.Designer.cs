@@ -52,7 +52,6 @@ namespace Booking
             // 
             // FiltrPanel
             // 
-            this.FiltrPanel.AutoScroll = true;
             this.FiltrPanel.Controls.Add(this.label4);
             this.FiltrPanel.Controls.Add(this.RatingComboBox);
             this.FiltrPanel.Controls.Add(this.Found_Button);

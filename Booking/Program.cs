@@ -23,12 +23,12 @@ namespace Booking
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CONN = new MySqlConnection(CONNECTION_STRING);
-            CONN.Open();
+            SQLClass.CONN = new MySqlConnection(CONNECTION_STRING);
+            SQLClass.CONN.Open();
 
             Application.Run(new MainForm());
 
-            CONN.Close();
+            SQLClass.CONN.Close();
         }
     }
 }

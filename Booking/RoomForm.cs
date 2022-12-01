@@ -22,8 +22,8 @@ namespace Booking
 
             id = Room_id;
 
-            List<string> otel = MainForm.MySelect("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
-            List<string> Room = MainForm.MySelect("SELECT Name, Price, Image, quantity ID FROM Rooms WHERE ID ='" + Room_id + "'");
+            List<string> otel = SQLClass.Select("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
+            List<string> Room = SQLClass.Select("SELECT Name, Price, Image, quantity ID FROM Rooms WHERE ID ='" + Room_id + "'");
 
             Text = otel[0] + ": " + Room[0];
             qty = Convert.ToInt32(Room[3]);
@@ -69,7 +69,7 @@ namespace Booking
             DateTime dt = dateTimePicker1.Value;
             while (dt <= dateTimePicker2.Value.AddDays(0.5)) 
             {
-                List<string> existBooking = MainForm.MySelect("SELECT COUNT(*) FROM booking " +
+                List<string> existBooking = SQLClass.Select("SELECT COUNT(*) FROM booking " +
                         "WHERE comedate <= '" + dt.ToString("yyyy-MM-dd") + "'" +
                         "AND outdate >=  '" + dt.ToString("yyyy-MM-dd") + "'");
                 if (Convert.ToInt32(existBooking[0]) >= qty)
@@ -82,7 +82,7 @@ namespace Booking
             #endregion
 
 
-            MainForm.MyUpdate("INSERT INTO booking(User, comedate, outdate, room_id) VALUES(" +
+            SQLClass.Update("INSERT INTO booking(User, comedate, outdate, room_id) VALUES(" +
                                                                 "'" + MainForm.Login + "'," +
                                                                 "'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'," +
                                                                 "'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'," +

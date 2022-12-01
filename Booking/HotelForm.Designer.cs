@@ -172,18 +172,19 @@ namespace Booking
             this.RoomsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RoomsPanel.Location = new System.Drawing.Point(0, 381);
             this.RoomsPanel.Name = "RoomsPanel";
-            this.RoomsPanel.Size = new System.Drawing.Size(1238, 267);
+            this.RoomsPanel.Size = new System.Drawing.Size(1238, 342);
             this.RoomsPanel.TabIndex = 1;
             // 
             // HotelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 648);
+            this.ClientSize = new System.Drawing.Size(1238, 723);
             this.Controls.Add(this.RoomsPanel);
             this.Controls.Add(this.panel1);
             this.Name = "HotelForm";
             this.Text = "Hotel";
+            this.Load += new System.EventHandler(this.HotelForm_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.Opinion.ResumeLayout(false);
