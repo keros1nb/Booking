@@ -11,8 +11,7 @@ namespace Booking
     static class Program
     {
 
-        public const string CONNECTION_STRING =
-           "SslMode=none;Server=localhost;Database=booking;port=3306;Uid=root;";
+       
 
         public static MySqlConnection CONN;
         /// <summary>
@@ -23,7 +22,7 @@ namespace Booking
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            SQLClass.CONN = new MySqlConnection(CONNECTION_STRING);
+            SQLClass.CONN = new MySqlConnection(SQLClass.CONNECTION_STRING);
             SQLClass.CONN.Open();
 
             Application.Run(new MainForm());

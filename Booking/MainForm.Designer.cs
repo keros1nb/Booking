@@ -46,7 +46,9 @@ namespace Booking
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.AccountButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
             this.FiltrPanel.SuspendLayout();
+            this.HotelsPanel.SuspendLayout();
             this.AuthPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,6 +178,7 @@ namespace Booking
             // HotelsPanel
             // 
             this.HotelsPanel.AutoScroll = true;
+            this.HotelsPanel.Controls.Add(this.HelpButton);
             this.HotelsPanel.Location = new System.Drawing.Point(0, 213);
             this.HotelsPanel.Name = "HotelsPanel";
             this.HotelsPanel.Size = new System.Drawing.Size(1367, 374);
@@ -226,6 +229,16 @@ namespace Booking
             this.AccountButton.Visible = false;
             this.AccountButton.Click += new System.EventHandler(this.button3_Click);
             // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(12, 318);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(75, 23);
+            this.HelpButton.TabIndex = 0;
+            this.HelpButton.Text = "О нас";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,6 +253,7 @@ namespace Booking
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
+            this.HotelsPanel.ResumeLayout(false);
             this.AuthPanel.ResumeLayout(false);
             this.AuthPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -265,6 +279,7 @@ namespace Booking
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Panel AuthPanel;
         public System.Windows.Forms.Button AdminButton;
+        private System.Windows.Forms.Button HelpButton;
     }
 }
 

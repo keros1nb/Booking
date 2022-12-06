@@ -61,7 +61,7 @@ namespace Booking
                 x += 65;
             }
 
-            List<string> Rooms = SQLClass.Select("SELECT Name, Price, Image, ID FROM Rooms WHERE Hotel_ID ='" + hotel_id + "'");
+            List<string> Rooms = SQLClass.Select("SELECT Name, Price, Image, ID FROM rooms WHERE Hotel_ID ='" + hotel_id + "'");
 
             x = 40;
             for (int i = 0; i < Rooms.Count; i += 4)

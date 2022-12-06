@@ -20,7 +20,8 @@ namespace Booking
 
         public static string Login = "";
         public static string NameSurname = "";
-        public static int isAdmin = 0;
+        public static bool isAdmin = false;
+      
 
 
 
@@ -107,6 +108,7 @@ namespace Booking
         private void Found_Button_Click(object sender, EventArgs e)
         {
             HotelsPanel.Controls.Clear();
+            HotelsPanel.Controls.Add(HelpButton);
             string command = "SELECT Name, City, Rating, Image, ID FROM hotels WHERE 1";
             if (CityComboBox.Text != "")
                 command += " AND City = '" + CityComboBox.Text + "'";
@@ -173,10 +175,8 @@ namespace Booking
                     label5.Visible = true;
                     AccountButton.Visible = true;
                 }
-                if (isAdmin == 1)
-                {
-                    AdminButton.Visible = true;
-                }
+
+                AdminButton.Visible = isAdmin;
                 label5.Text = NameSurname;
                 AuthPanel.Controls.Add(label5);
                 AuthPanel.Controls.Add(AccountButton);
@@ -190,6 +190,13 @@ namespace Booking
         {
             AccountForm AcF = new AccountForm();
             AcF.ShowDialog();
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            AboutUs AUS = new AboutUs();
+            AUS.ShowDialog();
+
         }
     }
 }

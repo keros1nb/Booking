@@ -15,6 +15,7 @@ namespace Booking
         public static int Rating;
         string id = "";
         int qty = 0;
+        int price;
 
         public RoomForm(string hotel_id, string Room_id)
         {
@@ -23,19 +24,32 @@ namespace Booking
             id = Room_id;
 
             List<string> otel = SQLClass.Select("SELECT Name, City, Rating, Image, Address FROM hotels WHERE ID ='" + hotel_id + "'");
-            List<string> Room = SQLClass.Select("SELECT Name, Price, Image, quantity ID FROM Rooms WHERE ID ='" + Room_id + "'");
+            List<string> Room = SQLClass.Select("SELECT Name, Price, Image, quantity ID FROM rooms WHERE ID ='" + Room_id + "'");
 
             Text = otel[0] + ": " + Room[0];
             qty = Convert.ToInt32(Room[3]);
+            price = Convert.ToInt32(Room[1]);
             label1.Text = otel[0];
             label3.Text = Room[0];
             label4.Text = otel[4];
             Rating = Convert.ToInt32(otel[2]);
+            PriceTextBox.Text = price.ToString();
+            QuantityTextBox.Text = qty.ToString();
+            PriceTextBox.Enabled = MainForm.isAdmin;
+            QuantityTextBox.Enabled = MainForm.isAdmin;
+            PriceTextBox.ReadOnly = !MainForm.isAdmin;
+            QuantityTextBox.ReadOnly = !MainForm.isAdmin;
+            SaveButton.Visible = MainForm.isAdmin;
+
+
+
+
             try
             {
                 pictureBox1.Load("../../Pictures/" + Room[2]);
             }
             catch (Exception) { };
+
 
             int x = 330;
             for (int i = 0; i < Rating; i++)
@@ -49,6 +63,9 @@ namespace Booking
 
                 x += 65;
             }
+
+
+
 
         }
 
@@ -109,6 +126,23 @@ namespace Booking
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SQLClass.Update("UPDATE rooms SET Price = '" + PriceTextBox.Text + "', quantity = '" + QuantityTextBox.Text + "' WHERE ID = '" + id + "'");
+
+            MessageBox.Show("Успешно сохранено");
         }
     }
 }

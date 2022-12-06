@@ -38,11 +38,12 @@ namespace Booking
             List<string> user_data = SQLClass.Select(
             "SELECT Login, Name, Surname, Admin_ID FROM users WHERE Login = '" + LoginTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'");
 
+            MainForm.isAdmin = (user_data[3] == "1");
             if (user_data.Count > 0)
             {
                 MainForm.Login = user_data[0];
                 MainForm.NameSurname = user_data[1] + " " + user_data[2];
-                MainForm.isAdmin = Convert.ToInt32(user_data[3]);
+               
                 Close();
             }
             else
@@ -51,6 +52,11 @@ namespace Booking
             }
 
             
+        }
+
+        private void AuthorizeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

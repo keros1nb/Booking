@@ -15,7 +15,7 @@ namespace Booking
     {
 
         public const string CONNECTION_STRING =
-           "SslMode=none;Server=localhost;Database=booking;port=3306;Uid=root;";
+           "SslMode=none;Server=sql8.freesqldatabase.com;Database=sql8582204;port=3306;Uid=sql8582204;pwd=JewBSNfaZ1";
 
         public static MySqlConnection CONN;
 
