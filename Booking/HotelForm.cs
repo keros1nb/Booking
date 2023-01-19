@@ -85,13 +85,20 @@ namespace Booking
 
 
                 Label lbl = new Label();
-                lbl.Location = new Point(x, 190);
+                lbl.Location = new Point(x, 200);
                 lbl.Size = new Size(500, 30);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = Rooms[i];
-                lbl.Tag = Rooms[i + 2];
+                lbl.Tag = Rooms[i + 3];
                 lbl.Click += new EventHandler(label3_Click);
                 RoomsPanel.Controls.Add(lbl);
+
+                Label lbl2 = new Label();
+                lbl2.Location = new Point(x, 240);
+                lbl2.Size = new Size(100, 30);
+                lbl2.Font = new Font("Microsoft Sans Serif", 12);
+                lbl2.Text = Rooms[i + 1];
+                RoomsPanel.Controls.Add(lbl2);
 
 
 
@@ -142,6 +149,11 @@ namespace Booking
         }
 
         private void HotelForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoomsPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

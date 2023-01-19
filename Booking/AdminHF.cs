@@ -46,6 +46,7 @@ namespace Booking
                 pictureBox1.Load(address);
                 System.IO.File.Copy(address, "../../Pictures/" + System.IO.Path.GetFileName(address));
                 address = System.IO.Path.GetFileName(address);
+               
             }    
         }
 
@@ -100,6 +101,11 @@ namespace Booking
                     return;
                 }
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

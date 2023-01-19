@@ -46,6 +46,7 @@ namespace Booking
                 pictureBox1.Load(address);
                 System.IO.File.Copy(address, "../../Pictures/" + System.IO.Path.GetFileName(address));
                 address = System.IO.Path.GetFileName(address);
+
             }
         }
 
@@ -53,8 +54,8 @@ namespace Booking
         {
             string[] parts = comboBox1.Text.Split(new char[] { ',' });
 
-            SQLClass.Update("INSERT INTO rooms (Name, Price, Name_hotel, City, Hotel_id)" +
-                             "VALUES('" + textBox1.Text + "', '" + textBox2.Text + "', '" + parts[0] + "', '" + parts[1] + "', '" + parts[2] + "')");
+            SQLClass.Update("INSERT INTO rooms (Name, Price, Name_hotel, City, Hotel_id, Image)" +
+                             "VALUES('" + textBox1.Text + "', '" + textBox2.Text + "', '" + parts[0] + "', '" + parts[1] + "', '" + parts[2] + "', '" + address + "')");
             MessageBox.Show("Сохранено");
             AdminRF_Load(sender, e);
             return;
@@ -63,11 +64,11 @@ namespace Booking
 
         private void AdminRF_Load(object sender, EventArgs e)
         {
-            List<string> list = SQLClass.Select("SELECT Name, Price, Name_Hotel, City, ID, Hotel_id FROM rooms");
+            List<string> list = SQLClass.Select("SELECT Name, Price, Name_Hotel, City, ID, Hotel_id, Image FROM rooms");
 
             panel1.Controls.Clear();
             int y = 30;
-            for (int i = 0; i < list.Count; i +=6)
+            for (int i = 0; i < list.Count; i +=7)
             {
                 Label lbl0 = new Label();
                 lbl0.Location = new Point(50, y);
